@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
-namespace PersonalFinanceAccounting.Application
+namespace PersonalFinanceAccounting.GuiApplication
 {
     /// <summary>
     /// Interaction logic for App.xaml
