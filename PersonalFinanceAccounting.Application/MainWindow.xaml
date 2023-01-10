@@ -13,9 +13,11 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Personal Finance" Height="450" Width="800">
     
     <Grid>
 
+
+        
     </Grid>
 </Window>
