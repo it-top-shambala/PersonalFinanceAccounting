@@ -11,8 +11,8 @@ namespace PersonalFinanceAccounting.Library.ObjectsDbSet
         public DbSet<Expensing> expenses { get; set; }
         public DbSet<Refilling> refills { get; set; }
         public DbSet<User> users { get; set; }
-        public DbSet<User> valutas { get; set; }
-        public DbSet<User> wallets { get; set; }
+        public DbSet<Valuta> valutas { get; set; }
+        public DbSet<Wallet> wallets { get; set; }
 
 
 
