@@ -4,12 +4,12 @@ using System.Xml;
 namespace PersonalFinanceAccounting.Library
 {
     /// <summary>
-    /// Класс извлечения курса вавлют из API центрабанка
+    /// Класс извлечения курса вавлют из API ЦБ РФ
     /// </summary>
     public static class ExchangeRateAPI
     {
         /// <summary>
-        /// Метод получения курса валюты из API центрабанка по ID валюты
+        /// Метод получения курса валюты из API ЦБ РФ по ID валюты
         /// </summary>
         /// <param name="ID">ID валюты</param>
         /// <returns>(Decimal) коэфициент курса валюты по отношению к рублю</returns>
