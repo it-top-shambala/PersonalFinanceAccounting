@@ -5,5 +5,4 @@
  Публичный метод получения курса валюты из API центрабанка по ID валюты
  Принимает ID валюты и возвращает Decimal коэфициент валюты по отношению к рублю.
 
- перед использовавнием метода нужно установить кодировку по файлу:
- Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+ перед использовавнием метода ExchangeRate() нужно вызвать метод Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);

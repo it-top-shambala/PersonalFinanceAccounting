@@ -13,7 +13,7 @@ namespace PersonalFinanceAccounting.Library
         /// </summary>
         /// <param name="ID">ID валюты</param>
         /// <returns>(Decimal) коэфициент курса валюты по отношению к рублю</returns>
-        /// <remark> перед использовавнием метода нужно установить кодировку по файлу : Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);</remark>
+        /// <remark> перед использовавнием метода ExchangeRate() нужно вызвать метод Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);</remark>
         public static decimal ExchangeRate(string ID) //"R01235" USD; "R01239" EUR
         {
             var reader = new XmlTextReader("http://www.cbr.ru/scripts/XML_daily.asp");
