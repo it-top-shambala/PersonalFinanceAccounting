@@ -1,44 +1,46 @@
+using System.Globalization;
 using System.Xml;
 
-namespace PersonalFinanceAccounting.Library
-{
-    public static class ExchangeRateAPI
-    {
-        public static decimal ExchangeRate(string ID) //"R01235" USD; "R01239" EUR
-        {
-            var reader = new XmlTextReader("http://www.cbr.ru/scripts/XML_daily.asp");
-            var ExchangeXml = "";
-            while (reader.Read())
-            {
-                switch (reader.NodeType)
-                {
-                    case XmlNodeType.Element:
+namespace PersonalFinanceAccounting.Library;
 
-                        if (reader.Name == "Valute")
-                        {
-                            if (reader.HasAttributes)
-                            {
-                                while (reader.MoveToNextAttribute())
-                                {
-                                    if (reader.Name == "ID")
-                                    {
-                                        if (reader.Value == ID)
-                                        {
-                                            reader.MoveToElement();
-                                            ExchangeXml = reader.ReadOuterXml();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                }
+/// <summary>
+/// Класс извлечения курса вавлют из API ЦБ РФ
+/// </summary>
+public static class ExchangeRateApi
+{
+    /// <summary>
+    /// Метод получения курса валюты из API ЦБ РФ по ID валюты
+    /// </summary>
+    /// <param name="id">ID валюты</param>
+    /// <returns>(Decimal) коэфициент курса валюты по отношению к рублю</returns>
+    /// <remark> перед использовавнием метода ExchangeRate() нужно вызвать метод Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);</remark>
+    public static decimal ExchangeRate(string id) //"R01235" USD; "R01239" EUR
+    {
+        var reader = new XmlTextReader("http://www.cbr.ru/scripts/XML_daily.asp");
+        var exchangeXml = "";
+        while (reader.Read())
+        {
+            if (reader.NodeType != XmlNodeType.Element || reader is not { Name: "Valute", HasAttributes: true })
+            {
+                continue;
             }
-            XmlDocument XmlDocument = new XmlDocument();
-            XmlDocument.LoadXml(ExchangeXml);
-            XmlNode xmlNode = XmlDocument.SelectSingleNode("Valute/Value");
-            decimal rate = Convert.ToDecimal(xmlNode.InnerText);
-            return rate;
+
+            while (reader.MoveToNextAttribute())
+            {
+                if (reader.Name != "ID" || reader.Value != id)
+                {
+                    continue;
+                }
+
+                _ = reader.MoveToElement();
+                exchangeXml = reader.ReadOuterXml();
+            }
         }
+
+        var xmlDocument = new XmlDocument();
+        xmlDocument.LoadXml(exchangeXml);
+        var xmlNode = xmlDocument.SelectSingleNode("Valute/Value");
+        var rate = Convert.ToDecimal(xmlNode.InnerText, new CultureInfo("ru-RU"));
+        return rate;
     }
 }
