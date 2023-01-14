@@ -1,9 +1,28 @@
 namespace PersonalFinanceAccounting.Library.Models
 {
-    internal class Valuta : Notify
+    public class Valuta : BaseNotify
     {
+        public string? name;
+        public int code;
         public int Id { get; set; }
-        public string? NameValuta { get; set; }
-        public int CodeValuta { get; set; }
+        public string? Name
+        {
+            get => name;
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name_Valuta");
+                OnNotify($"Валюта: {name}");
+            }
+        }
+        public int Code
+        {
+            get => code;
+            set
+            {
+                code = value;
+                OnPropertyChanged("Code_Valuta");
+            }
+        }
     }
 }

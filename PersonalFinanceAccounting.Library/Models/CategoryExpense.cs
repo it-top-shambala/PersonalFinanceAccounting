@@ -1,8 +1,18 @@
 namespace PersonalFinanceAccounting.Library.Models
 {
-    internal class CategoryExpense : Notify
+    public class CategoryExpense : BaseNotify
     {
         public int Id { get; set; }
-        public string CatExp { get; set; }
+        public string? category { get; set; }
+        public string Category
+        {
+            get => category;
+            set
+            {
+                category = value;
+                OnPropertyChanged("CategoryExpense");
+                OnNotify($"Выбрана категория: {category}");
+            }
+        }
     }
 }

@@ -1,8 +1,18 @@
 namespace PersonalFinanceAccounting.Library.Models
 {
-    internal class CategoryRefill : Notify
+    public class CategoryRefill : BaseNotify
     {
         public int Id { get; set; }
-        public string CatRef { get; set; }
+        public string? category { get; set; }
+        public string Category
+        {
+            get => category;
+            set
+            {
+                category = value;
+                OnPropertyChanged("CategoryRefill");
+                OnNotify($"Выбрана категория: {category}");
+            }
+        }
     }
 }
