@@ -11,6 +11,10 @@
 
 остаток - balance
 
+## Ментальная карта проекта
+
+![mindmap](./Documentation/mindmap_project-0.svg)
+
 ## Диаграмма модулей
 
 ```mermaid
@@ -75,6 +79,7 @@ tab_incoming  -->  tab_category_income : category_income_id
 tab_incoming  -->  tab_wallets : wallet_id
 tab_wallets  -->  tab_currency : currency_id
 ```
+
 ## Диаграмма классов модели данных
 
 ```mermaid
