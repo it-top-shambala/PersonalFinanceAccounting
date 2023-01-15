@@ -1,5 +1,10 @@
 namespace PersonalFinanceAccounting.Library.Models
 {
+    /// <summary>
+    /// Класс категорий расходов
+    /// Id - идентификатор категории
+    /// Category - назавание категории
+    /// </summary>
     public class CategoryExpense : BaseNotify
     {
         public int Id { get; set; }
@@ -11,7 +16,6 @@ namespace PersonalFinanceAccounting.Library.Models
             {
                 category = value;
                 OnPropertyChanged("CategoryExpense");
-                OnNotify($"Выбрана категория: {category}");
             }
         }
     }

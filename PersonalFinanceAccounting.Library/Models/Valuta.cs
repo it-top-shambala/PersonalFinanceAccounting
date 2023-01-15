@@ -1,5 +1,11 @@
 namespace PersonalFinanceAccounting.Library.Models
 {
+    /// <summary>
+    /// Класс Валюта
+    /// Id - идентификатор валюты
+    /// Name - название валюты
+    /// Code - код валюты
+    /// </summary>
     public class Valuta : BaseNotify
     {
         public string? name;
@@ -12,7 +18,6 @@ namespace PersonalFinanceAccounting.Library.Models
             {
                 name = value;
                 OnPropertyChanged("Name_Valuta");
-                OnNotify($"Валюта: {name}");
             }
         }
         public int Code
