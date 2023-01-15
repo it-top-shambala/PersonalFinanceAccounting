@@ -2,27 +2,23 @@ namespace PersonalFinanceAccounting.Library.Models
 {
     /// <summary>
     /// Класс Кошелек
-    /// Id - идентификатор кошелька
-    /// Name - название кошелька
-    /// IdValuta - идентификатор валюты
-    /// Amount - количество средств в кошельке
     /// </summary>
     public class Wallet : BaseNotify
     {
         public string? name;
         public int idValuta;
         public float amount;
+        /// <summary>
+        ///  Id - идентификатор кошелька
+        /// </summary>
         public int Id { get; set; }
-        public string? Name
-        {
-            get => name;
-            set
-            {
-                name = value;
-                OnPropertyChanged("Name_Wallet");
-            }
-        }
-
+        /// <summary>
+        ///  Name - название кошелька
+        /// </summary>
+        public string? Name { get; set; }
+        /// <summary>
+        /// IdValuta - идентификатор валюты
+        /// </summary>
         public int IdValuta
         {
             get => idValuta;
@@ -32,6 +28,9 @@ namespace PersonalFinanceAccounting.Library.Models
                 OnPropertyChanged("Id_Valuta");
             }
         }
+        /// <summary>
+        /// Amount - количество средств в кошельке
+        /// </summary>
         public float Amount
         {
             get => amount;
