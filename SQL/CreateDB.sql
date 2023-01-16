@@ -26,7 +26,7 @@ CREATE TABLE tab_wallets(
 
 CREATE TABLE tab_incoming(
     income_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    date_Time TEXT NOT NULL,
+    date_time TEXT NOT NULL,
     wallet_id INTEGER NOT NULL,
     category_income_id INTEGER NOT NULL,
     summa REAL NOT NULL,
