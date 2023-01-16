@@ -43,36 +43,6 @@ namespace PersonalFinanceAccounting.Library.Models
                 return true;
             }
             return false;
-        /// <param name="sum">sum - сумма пополнения</param>
-        public void Put(float sum)
-        {
-            amount += sum;
-        }
-        /// <summary>
-        /// Метод получения из кошелька
-        /// </summary>
-        /// <param name="sum">sum - сумма получения</param>
-        public void Take(float sum)
-        {
-            if (amount >= sum)
-            {
-                amount -= sum;
-            }
-        /// <param name="sum">sum - сумма пополнения</param>
-        public void Put(float sum)
-        {
-            amount += sum;
-        }
-        /// <summary>
-        /// Метод получения из кошелька
-        /// </summary>
-        /// <param name="sum">sum - сумма получения</param>
-        public void Take(float sum)
-        {
-            if (amount >= sum)
-            {
-                amount -= sum;
-            }
         }
     }
 }

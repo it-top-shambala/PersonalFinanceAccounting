@@ -14,22 +14,4 @@ namespace PersonalFinanceAccounting.Library.Models
         /// </summary>
         public string Category { get; set; }
     }
-        {
-            get => category;
-            set
-            {
-                category = value;
-                OnPropertyChanged("CategoryExpense");
-            }
-        }
-    }
-        {
-            get => category;
-            set
-            {
-                category = value;
-                OnPropertyChanged("CategoryExpense");
-            }
-        }
-    }
 }
