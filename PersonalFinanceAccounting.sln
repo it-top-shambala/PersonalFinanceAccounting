@@ -13,8 +13,6 @@ Global
 		{8CCC3287-2147-435F-8320-D4392C8075B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8CCC3287-2147-435F-8320-D4392C8075B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CCC3287-2147-435F-8320-D4392C8075B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8CCC3287-2147-435F-8320-D4392C8075B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CCC3287-2147-435F-8320-D4392C8075B4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
