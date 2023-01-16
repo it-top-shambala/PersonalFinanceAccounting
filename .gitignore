@@ -401,4 +401,3 @@ FodyWeavers.xsd
 .idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp
-/PersonalFinanceAccounting.Library/PersonalFinanceDb/App.config
