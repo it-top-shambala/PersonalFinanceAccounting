@@ -1,12 +1,10 @@
-USE WALLETSDB;
-GO
 CREATE TRIGGER tab_valuta_INSERT_UPDATE
 ON tab_valuta
 AFTER INSERT, UPDATE
 AS
 UPDATE tab_valuta
 SET Id = Id + id
-WHERE Id = (SELECT Id FROM inserted)
+WHERE Id = (SELECT Id FROM inserted);
 
 
 USE WALLETSDB;
@@ -96,7 +94,3 @@ AS
 INSERT INTO History (Id)
 SELECT Id
 FROM DELETED
-
-
-
-

@@ -51,4 +51,3 @@ CREATE TABLE tab_expensing(
         ON DELETE NO ACTION
         ON UPDATE NO ACTION
 );
-
