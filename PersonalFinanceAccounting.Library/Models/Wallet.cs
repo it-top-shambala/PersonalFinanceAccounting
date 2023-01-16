@@ -3,11 +3,8 @@ namespace PersonalFinanceAccounting.Library.Models
     /// <summary>
     /// Класс Кошелек
     /// </summary>
-    public class Wallet : BaseNotify
+    public class Wallet
     {
-        public string? name;
-        public int idValuta;
-        public float amount;
         /// <summary>
         ///  Id - идентификатор кошелька
         /// </summary>
@@ -17,47 +14,35 @@ namespace PersonalFinanceAccounting.Library.Models
         /// </summary>
         public string? Name { get; set; }
         /// <summary>
-        /// IdValuta - идентификатор валюты
+        /// IdCurrancy - идентификатор валюты
         /// </summary>
-        public int IdValuta
-        {
-            get => idValuta;
-            set
-            {
-                idValuta = value;
-                OnPropertyChanged("Id_Valuta");
-            }
-        }
+        public int IdCurrancy { get; set; }
+
         /// <summary>
         /// Amount - количество средств в кошельке
         /// </summary>
-        public float Amount
-        {
-            get => amount;
-            set
-            {
-                amount = value;
-                OnPropertyChanged("Amount");
-            }
-        }
+        public double Balance { get; set; }
+
         /// <summary>
         /// Метод пополнения кошелька
         /// </summary>
         /// <param name="sum">sum - сумма пополнения</param>
-        public void Put(float sum)
+        public void Incoming(double sum)
         {
-            amount += sum;
+            Balance += sum;
         }
         /// <summary>
         /// Метод получения из кошелька
         /// </summary>
         /// <param name="sum">sum - сумма получения</param>
-        public void Take(float sum)
+        public bool Expensing(double sum)
         {
-            if (amount >= sum)
+            if (Balance >= sum)
             {
-                amount -= sum;
+                Balance -= sum;
+                return true;
             }
+            return false;
         }
     }
 }

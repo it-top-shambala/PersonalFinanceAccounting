@@ -3,7 +3,7 @@ namespace PersonalFinanceAccounting.Library.Models
     /// <summary>
     /// Класс категорий приходов
     /// </summary>
-    public class CategoryRefill : BaseNotify
+    public class CategoryIncoming
     {
         /// <summary>
         ///  Id - идентификатор категории
@@ -12,15 +12,7 @@ namespace PersonalFinanceAccounting.Library.Models
         /// <summary>
         /// Category - назавание категории
         /// </summary>
-        public string? category { get; set; }
-        public string Category
-        {
-            get => category;
-            set
-            {
-                category = value;
-                OnPropertyChanged("CategoryRefill");
-            }
-        }
+        public string Category { get; set; }
+
     }
 }
