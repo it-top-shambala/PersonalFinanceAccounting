@@ -3,7 +3,7 @@ namespace PersonalFinanceAccounting.Library.Models
     /// <summary>
     /// Класс Валюта
     /// </summary>
-    public class Valuta
+    public class Currency
     {
         /// <summary>
         ///  Id - идентификатор валюты
