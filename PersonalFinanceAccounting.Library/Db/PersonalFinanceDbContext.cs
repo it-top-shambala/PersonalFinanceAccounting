@@ -8,7 +8,7 @@ namespace PersonalFinanceAccounting.Library.Db
 {
     public class PersonalFinanceDbContext : IPersonalFinance
     {
-        public string connectionString { get; set; }
+        private readonly string connectionString;
         public PersonalFinanceDbContext()
         {
             connectionString = ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
@@ -17,26 +17,27 @@ namespace PersonalFinanceAccounting.Library.Db
         /// Методы полуения данных из бд
         /// </summary>
         /// <returns></returns>
-        public List<Wallet> GetWallets()
+        public IEnumerable<Wallet> GetWallets()
         {
             using var connection = new SqliteConnection(connectionString);
-            return connection.Query<Wallet>("SELECT * FROM tab_wallets").ToList();
+            return connection.Query<Wallet>("SELECT * FROM tab_wallets");
         }
-        public List<Currancy> GetCurrancies()
+        public IEnumerable<Currancy> GetCurrancies()
         {
             using var connection = new SqliteConnection(connectionString);
-            return connection.Query<Currancy>("SELECT * FROM tab_currency").ToList();
+            return connection.Query<Currancy>("SELECT * FROM tab_currency");
         }
-        public List<CategoryExpense> GetCategoryExpenses()
+        public IEnumerable<CategoryExpense> GetCategoryExpenses()
         {
             using var connection = new SqliteConnection(connectionString);
-            return connection.Query<CategoryExpense>("SELECT * FROM tab_category_expense").ToList();
+            return connection.Query<CategoryExpense>("SELECT * FROM tab_category_expense");
         }
-        public List<CategoryIncoming> GetCategoryIncomings()
+        public IEnumerable<CategoryIncoming> GetCategoryIncomings()
         {
             using var connection = new SqliteConnection(connectionString);
-            return connection.Query<CategoryIncoming>("SELECT * FROM tab_category_income").ToList();
+            return connection.Query<CategoryIncoming>("SELECT * FROM tab_category_income");
         }
+
 
         /// <summary>
         /// Методы добавления данных в бд
@@ -140,5 +141,6 @@ namespace PersonalFinanceAccounting.Library.Db
                 "VALUES (date('now'),@WalletId,@category_expense_id,@Summa)";
             _ = connection.Execute(queryInsert, new { WalletId = walletId, category_expense_id = categoryExpensesId, Summa = summa });
         }
+       
     }
 }

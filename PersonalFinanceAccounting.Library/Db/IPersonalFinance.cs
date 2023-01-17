@@ -4,10 +4,10 @@ namespace PersonalFinanceAccounting.Library.Db
 {
     public interface IPersonalFinance
     {
-        List<Wallet> GetWallets();
-        List<Currancy> GetCurrancies();
-        List<CategoryExpense> GetCategoryExpenses();
-        List<CategoryIncoming> GetCategoryIncomings();
+        IEnumerable<Wallet> GetWallets();
+        IEnumerable<Currancy> GetCurrancies();
+        IEnumerable<CategoryExpense> GetCategoryExpenses();
+        IEnumerable<CategoryIncoming> GetCategoryIncomings();
 
         bool CreateWallet(Wallet wallet);
         bool CreateCategoryExpenses(CategoryExpense category);
