@@ -3,16 +3,21 @@ namespace PersonalFinanceAccounting.Library.Models
     /// <summary>
     /// Класс категорий приходов
     /// </summary>
-    public class CategoryIncoming
+    public class Category
     {
         /// <summary>
         ///  Id - идентификатор категории
         /// </summary>
         public int Id { get; set; }
         /// <summary>
-        /// Category - назавание категории
+        /// Name - назавание категории
         /// </summary>
-        public string Category { get; set; }
+        public string Name { get; set; }
+        /// <summary>
+        /// Type - тип категории
+        /// </summary>
+        public string Type { get; set; }
+        public Category() { }
 
     }
 }
