@@ -12,7 +12,7 @@ namespace PersonalFinanceAccounting.Library.Models
         /// <summary>
         ///  Name - название кошелька
         /// </summary>
-        public string? Name { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// IdCurrancy - идентификатор валюты
         /// </summary>

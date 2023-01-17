@@ -12,10 +12,10 @@ namespace PersonalFinanceAccounting.Library.Models
         /// <summary>
         /// Name - название валюты
         /// </summary>
-        public string? Name { get; set; }
+        public string Name { get; set; }
         /// <summary>
         ///  Code - код валюты
         /// </summary>
-        public int Code { get; set; }
+        public string Code { get; set; }
     }
 }

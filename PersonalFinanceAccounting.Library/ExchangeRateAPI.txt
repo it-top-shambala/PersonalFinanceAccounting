@@ -1,8 +1,0 @@
- ExchangeRateAPI
- Класс извлечения курса вавлют из API ЦБ РФ
-
- ExchangeRate(string ID)
- Публичный метод получения курса валюты из API ЦБ РФ по ID валюты
- Принимает ID валюты и возвращает Decimal коэфициент валюты по отношению к рублю.
-
- перед использовавнием метода ExchangeRate() нужно вызвать метод Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
