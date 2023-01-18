@@ -36,9 +36,25 @@ namespace PersonalFinanceAccounting.GuiApp.ViewModels.TopPanelOperations
 
         public List<Currancy> Currencies { get; set; }
 
+        public List<ImageSource>? ImageSources { get; set; }
+
+        private ImageSource? _selectedImage;
+        public ImageSource? SelectedImage
+        {
+            get => _selectedImage;
+            set
+            {
+                if (SetField(ref _selectedImage, value))
+                {
+                    RefreshState?.Invoke();
+                }
+            }
+        }
+
         public OperationCreateWallet(Action action) : base(action)
         {
             Currencies = new List<Currancy>(); //используем метод получения валют
+            InitImageSources();
         }
 
         protected override void Clear()
@@ -53,11 +69,12 @@ namespace PersonalFinanceAccounting.GuiApp.ViewModels.TopPanelOperations
             Clear();
             //используем метод для создания(добавления) нового кошелька
             //...CreateWallet(Name, Sum, SelectedCurrency.Id)
+            //сохранить привязку фона к кошельку (наследование от Wallet) 
         }
 
         public override bool RefreshStates()
         {
-            return !string.IsNullOrWhiteSpace(Name) && SelectedCurrency is not null;
+            return !string.IsNullOrWhiteSpace(Name) && SelectedCurrency is not null && !string.IsNullOrWhiteSpace(SelectedImage?.Path);
         }
 
         private static void RemoveLettersOrSymbols(ref string str)
@@ -95,6 +112,15 @@ namespace PersonalFinanceAccounting.GuiApp.ViewModels.TopPanelOperations
             if (str.Contains(',') && str.IndexOf(',') + 3 == str.Length - 1)
             {
                 str = str.Remove(str.IndexOf(',') + 3);
+            }
+        }
+
+        private void InitImageSources()
+        {
+            ImageSources = new List<ImageSource>();
+            for (var i = 0; i < 6; i++)
+            {
+                ImageSources.Add(new ImageSource { Path = $"Assets/Backgrounds/{i}.jpg" });
             }
         }
     }

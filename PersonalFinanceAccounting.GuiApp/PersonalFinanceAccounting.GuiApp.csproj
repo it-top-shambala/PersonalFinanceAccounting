@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Backgrounds\0.jpg" />
+    <None Remove="Assets\Backgrounds\1.jpg" />
+    <None Remove="Assets\Backgrounds\2.jpg" />
+    <None Remove="Assets\Backgrounds\3.jpg" />
+    <None Remove="Assets\Backgrounds\4.jpg" />
+    <None Remove="Assets\Backgrounds\5.jpg" />
     <None Remove="cat.jpg" />
   </ItemGroup>
 
@@ -25,6 +31,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Backgrounds\0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Backgrounds\1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Backgrounds\2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Backgrounds\3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Backgrounds\4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Backgrounds\5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="cat.jpg" />
   </ItemGroup>
 

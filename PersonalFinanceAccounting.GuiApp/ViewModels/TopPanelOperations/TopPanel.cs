@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Windows.Documents;
 using PersonalFinanceAccounting.GuiApp.ViewModels.Commands;
 
 namespace PersonalFinanceAccounting.GuiApp.ViewModels.TopPanelOperations

@@ -44,7 +44,7 @@ namespace PersonalFinanceAccounting.GuiApp.ViewModels.TopPanelOperations
             else
             {
                 Show();
-                height = 100;
+                height = 150;
             }
             return height;
         }

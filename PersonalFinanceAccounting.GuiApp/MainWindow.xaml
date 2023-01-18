@@ -33,22 +33,32 @@
                 <Button Content="Добавить категорию расходов" Margin="3,3,6,0" Command="{Binding TopPanel.CommandOpenCloseCreateExpenseCategory}" Cursor="Hand"/>
             </StackPanel>
 
-            <StackPanel Visibility="{Binding TopPanel.CreateWallet.IsVisible}" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <TextBox Text="{Binding TopPanel.CreateWallet.Name, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="0,0,10,0"
+            <StackPanel Visibility="{Binding TopPanel.CreateWallet.IsVisible}" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" Height="70">
+                <TextBox Text="{Binding TopPanel.CreateWallet.Name, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="0,0,10,0" VerticalAlignment="Bottom"
                     materialDesign:HintAssist.Hint="Название кошелька"
                     materialDesign:HintAssist.IsFloating="True"
                     materialDesign:TextFieldAssist.HasClearButton="True"/>
-                <TextBox Text="{Binding TopPanel.CreateWallet.Sum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="200" Margin="0,0,10,0"
-                    materialDesign:HintAssist.Hint="Начальная сумма"
-                    materialDesign:HintAssist.IsFloating="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"/>
-                <ComboBox ItemsSource="{Binding TopPanel.CreateWallet.Currencies}" SelectedItem="{Binding TopPanel.CreateWallet.SelectedCurrency}"
+                <ComboBox ItemsSource="{Binding TopPanel.CreateWallet.Currencies}" SelectedItem="{Binding TopPanel.CreateWallet.SelectedCurrency}" VerticalAlignment="Bottom"
                           materialDesign:HintAssist.Hint="Валюта"
                           materialDesign:HintAssist.IsFloating="True"
                           Width="80" Margin="0,0,10,0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox Text="{Binding TopPanel.CreateWallet.Sum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="200" Margin="0,0,10,0" VerticalAlignment="Bottom"
+                    materialDesign:HintAssist.Hint="Начальная сумма"
+                    materialDesign:HintAssist.IsFloating="True"
+                    materialDesign:TextFieldAssist.HasClearButton="True"/>
+                <ComboBox ItemsSource="{Binding TopPanel.CreateWallet.ImageSources}" SelectedItem="{Binding TopPanel.CreateWallet.SelectedImage}" VerticalAlignment="Bottom"
+                          materialDesign:HintAssist.Hint="Фон"
+                          materialDesign:HintAssist.IsFloating="True"
+                          Width="100" Margin="0,0,10,0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path}" Width="100" Height="66"/>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
@@ -83,7 +93,7 @@
                 <ListBox ItemsSource="{Binding Wallets}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border  Height="144" Width="200" BorderBrush="#FF673AB7" BorderThickness="1">
+                            <Border Height="144" Width="200" BorderBrush="#FF673AB7" BorderThickness="1">
                                 <Border.Background>
                                     <ImageBrush ImageSource="/cat.jpg"/>
                                 </Border.Background>
