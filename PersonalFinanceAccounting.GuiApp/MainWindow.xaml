@@ -103,11 +103,18 @@
                                             <DropShadowEffect Color="#FF673AB7" Direction="-30" BlurRadius="-3" ShadowDepth="2" />
                                         </TextBlock.Effect>
                                     </TextBlock>
-                                    <TextBlock Text="{Binding Balance}" Foreground="White" FontSize="25">
-                                        <TextBlock.Effect>
-                                            <DropShadowEffect Color="#FF673AB7" Direction="-30" BlurRadius="-3" ShadowDepth="2" />
-                                        </TextBlock.Effect>
-                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Balance}" Foreground="White" FontSize="25" HorizontalAlignment="Center">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect Color="#FF673AB7" Direction="-30" BlurRadius="-3" ShadowDepth="2" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                        <TextBlock Text="{Binding IdCurrancy}" Foreground="White" FontSize="25" HorizontalAlignment="Center" Margin="20,0,0,0">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect Color="#FF673AB7" Direction="-30" BlurRadius="-3" ShadowDepth="2" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </StackPanel>
                                 </StackPanel>
                             </Border>
                         </DataTemplate>

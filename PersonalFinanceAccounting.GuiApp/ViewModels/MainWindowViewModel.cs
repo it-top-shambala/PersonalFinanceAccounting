@@ -13,8 +13,9 @@ namespace PersonalFinanceAccounting.GuiApp.ViewModels
         public MainWindowViewModel()
         {
             TopPanel = new();
-            Wallets = new ObservableCollection<Wallet> { new Wallet { Id = 1, Balance = 1000000, IdCurrancy = 1, Name = "Wallet" } };
+            Wallets = new ObservableCollection<Wallet> { new Wallet { Id = 1, Balance = 1000000, IdCurrancy = 1, Name = "На корм котику" } };
             //используем метод получения кошельков
+            //наследоваться от Wallet (добавить путь в картинке и буквенный код валюты
         }
 
     }
