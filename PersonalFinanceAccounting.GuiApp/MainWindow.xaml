@@ -14,7 +14,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Personal Finance" Height="450" Width="800">
+        Title="Personal Finance" Height="600" Width="1000">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -26,9 +26,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Button Content="Добавить кошелёк" Margin="6,3,3,0" Command="{Binding TopPanel.CommandOpenCloseCreateWallet}" Cursor="Hand"/>
+                <Button Content="Добавить кошелёк" Margin="180,3,3,0" Command="{Binding TopPanel.CommandOpenCloseCreateWallet}" Cursor="Hand"/>
                 <Button Content="Добавить категорию доходов" Margin="3,3,3,0" Command="{Binding TopPanel.CommandOpenCloseCreateIncomeCategory}" Cursor="Hand"/>
                 <Button Content="Добавить категорию расходов" Margin="3,3,6,0" Command="{Binding TopPanel.CommandOpenCloseCreateExpenseCategory}" Cursor="Hand"/>
             </StackPanel>
