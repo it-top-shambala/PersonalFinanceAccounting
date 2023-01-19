@@ -16,33 +16,25 @@ namespace PersonalFinanceAccounting.Library.Models
         /// <summary>
         /// IdCurrancy - идентификатор валюты
         /// </summary>
-        public int IdCurrancy { get; set; }
+        public int IdCurrency { get; set; }
 
         /// <summary>
         /// Amount - количество средств в кошельке
         /// </summary>
         public double Balance { get; set; }
-
         /// <summary>
         /// Метод пополнения кошелька
         /// </summary>
         /// <param name="sum">sum - сумма пополнения</param>
-        public void Incoming(double sum)
+        public Wallet(string name, int id, double balance)
         {
-            Balance += sum;
+            Name = name;
+            Id = id;
+            Balance = balance;
         }
-        /// <summary>
-        /// Метод получения из кошелька
-        /// </summary>
-        /// <param name="sum">sum - сумма получения</param>
-        public bool Expensing(double sum)
+
+        public Wallet()
         {
-            if (Balance >= sum)
-            {
-                Balance -= sum;
-                return true;
-            }
-            return false;
         }
     }
 }
