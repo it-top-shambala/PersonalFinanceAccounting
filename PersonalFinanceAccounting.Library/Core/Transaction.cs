@@ -18,13 +18,16 @@ namespace PersonalFinanceAccounting.Library.Core
         /// <param name="category">Категория транзакции.</param>
         /// <param name="summ">Сумма транзакции.</param>
         /// <param name="wallet">Кошелек.</param>
-        public static void Incom (Category category, double summ, Wallet wallet) { }
+        public static void Incom (string categoryName, double summ, string walletName)
+        {
+
+        }
         /// <summary>
         /// Статический метод проведения расходных транзакций.
         /// </summary>
         /// <param name="category">Категория транзакции.</param>
         /// <param name="summ">Сумма транзакции.</param>
         /// <param name="wallet">Кошелек.</param>
-        public static void Expense (Category category, double summ, Wallet wallet) { }
+        public static void Expense (string categoryName, double summ, string walletName) { }
     }
 }

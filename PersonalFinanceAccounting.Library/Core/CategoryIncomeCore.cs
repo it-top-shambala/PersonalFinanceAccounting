@@ -1,3 +1,4 @@
+using PersonalFinanceAccounting.Library.Db;
 using PersonalFinanceAccounting.Library.Models;
 
 namespace PersonalFinanceAccounting.Library.Core
@@ -10,9 +11,15 @@ namespace PersonalFinanceAccounting.Library.Core
         /// <summary>
         /// Статический метод создание новой категории досхода.
         /// </summary>       
-        /// <param name="name">Имя категории.</param>
+        /// <param name="nameCategory">Имя категории.</param>
         /// <returns>Возвращает объект класса Category.</returns>
-        public static Category CreateCategory(string name) { return new(); }
+        public static Category CreateCategory(string nameCategory)
+        {
+            var PFDBC = new PersonalFinanceDbContext();
+            var category = new Category(nameCategory);
+            if (PFDBC.CreateCategoryIncomings(category)) return category;
+            else return PFDBC.GetCategory(nameCategory);
+        }
         /// <summary>
         /// Статический метод изменения имени категории досхода.
         /// </summary>

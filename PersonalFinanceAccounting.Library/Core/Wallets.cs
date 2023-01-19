@@ -1,3 +1,4 @@
+using PersonalFinanceAccounting.Library.Db;
 using PersonalFinanceAccounting.Library.Models;
 
 namespace PersonalFinanceAccounting.Library.Core
@@ -11,6 +12,10 @@ namespace PersonalFinanceAccounting.Library.Core
         /// Статический метод возврата списка кошельков.
         /// </summary>
         /// <returns>Возвращает список объектов класса Wallet.</returns>
-        public static List<Wallet> wallets() { return new List<Wallet>(); }
+        public static IEnumerable<Wallet> wallets()
+        {
+            var list = new PersonalFinanceDbContext();
+            return list.GetWallets();
+        }
     }
 }

@@ -13,11 +13,12 @@ namespace PersonalFinanceAccounting.Library.Models
         /// Name - назавание категории
         /// </summary>
         public string Name { get; set; }
-        /// <summary>
-        /// Type - тип категории
-        /// </summary>
-        public string Type { get; set; }
-        public Category() { }
-
+        public Category(string name)
+        {
+            Name = name;
+        }
+        public Category()
+        {
+        }
     }
 }
