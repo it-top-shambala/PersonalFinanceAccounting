@@ -16,7 +16,7 @@ namespace PersonalFinanceAccounting.Library.Models
         /// <summary>
         /// IdCurrancy - идентификатор валюты
         /// </summary>
-        public int IdCurrancy { get; set; }
+        public Currency? Currency { get; set; }
 
         /// <summary>
         /// Amount - количество средств в кошельке

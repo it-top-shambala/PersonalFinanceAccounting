@@ -3,7 +3,7 @@ namespace PersonalFinanceAccounting.Library.Models
     /// <summary>
     /// Класс категорий приходов
     /// </summary>
-    public class CategoryIncoming
+    public class CategoryIncome
     {
         /// <summary>
         ///  Id - идентификатор категории
