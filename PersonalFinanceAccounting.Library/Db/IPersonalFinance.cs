@@ -11,6 +11,7 @@ namespace PersonalFinanceAccounting.Library.Db
         Wallet GetWallet(int id);
         CategoryExpense GetCategoryExpense(int id);
         CategoryIncoming GetCategoryIncoming(int id);
+        List<LogOperation> GetLog(int idWallet);
 
         int CreateWallet(Wallet wallet);
         int CreateCategoryExpenses(CategoryExpense category);

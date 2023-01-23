@@ -54,7 +54,21 @@ namespace PersonalFinanceAccounting.Library.Db
             return connection.QuerySingle<CategoryIncoming>(query);
 
         }
+        public List<LogOperation> GetLog(int idWallet)
+        {
+            var tab_income = "SELECT income_id,date_time,wallet_id,name,summa FROM tab_incoming, tab_category_income" +
+                " WHERE tab_incoming.category_income_id = tab_category_income.category_income_id" +
+                "AND tab_incoming.wallet_id = " + $"{idWallet};";
+            var tab_expense = "SELECT expense_id,date_time,wallet_id,name,summa FROM tab_expensing,tab_category_expense " +
+                "WHERE tab_expensing.category_expense_id = tab_category_expense.category_expense_id" +
+                "AND tab_expensing.wallet_id = " + $"{idWallet}";
 
+            using var connection = new SqliteConnection(connectionString);
+            var income = connection.Query<LogOperation>(tab_income).ToList();
+            var expense = connection.Query<LogOperation>(tab_expense).ToList();
+            income.AddRange(expense);
+            return income;
+        }
 
         /// <summary>
         /// Методы добавления данных в бд
@@ -205,10 +219,14 @@ namespace PersonalFinanceAccounting.Library.Db
         }
         public bool Expense(int walletId, int categoryExpensesId, float summa)
         {
+            /// <summary>
+            /// Умнажаем на -1 для того чтобы визуализировать то, что это расход
+            /// </summary>
+            var sum = summa * -1;
             using var connection = new SqliteConnection(connectionString);
             var queryInsert = "INSERT INTO tab_expensing (date_time,wallet_id,category_expense_id,summa)" +
                 "VALUES (datetime('now'),@WalletId,@category_expense_id,@Summa)";
-            var result = connection.Execute(queryInsert, new { WalletId = walletId, category_expense_id = categoryExpensesId, Summa = summa });
+            var result = connection.Execute(queryInsert, new { WalletId = walletId, category_expense_id = categoryExpensesId, Summa = sum });
             if (result == 0)
             {
                 return false;
@@ -219,9 +237,6 @@ namespace PersonalFinanceAccounting.Library.Db
                 var res = connection.Execute(queryUpdate, new { Summa = summa, WalletId = walletId });
                 return res != 0;
             }
-
-
         }
-
     }
 }
