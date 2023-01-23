@@ -10,6 +10,10 @@ namespace PersonalFinanceAccounting.Library.Models
         /// </summary>
         public int Id { get; set; }
         /// <summary>
+        /// идентификатор кошелька
+        /// </summary>
+        public int IdWallet{ get; set; }
+        /// <summary>
         /// время проведения транзакции
         /// </summary>
         public DateTime? DateTime { get; set; }
