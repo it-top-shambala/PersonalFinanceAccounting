@@ -5,11 +5,9 @@ namespace PersonalFinanceAccounting.Library.Db
     public interface IPersonalFinance
     {
         IEnumerable<Wallet> GetWallets();
-        IEnumerable<Currency> GetCurrencies();
+        IEnumerable<Currancy> GetCurrancies();
         IEnumerable<CategoryExpense> GetCategoryExpenses();
         IEnumerable<CategoryIncoming> GetCategoryIncomings();
-        Wallet GetWallet(int id);
-
 
         bool CreateWallet(Wallet wallet);
         bool CreateCategoryExpenses(CategoryExpense category);

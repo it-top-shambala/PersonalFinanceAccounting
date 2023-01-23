@@ -13,15 +13,19 @@ namespace PersonalFinanceAccounting.Library.Db
         {
             connectionString = ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
         }
+        /// <summary>
+        /// Методы полуения данных из бд
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Wallet> GetWallets()
         {
             using var connection = new SqliteConnection(connectionString);
             return connection.Query<Wallet>("SELECT * FROM tab_wallets");
         }
-        public IEnumerable<Currency> GetCurrencies()
+        public IEnumerable<Currancy> GetCurrancies()
         {
             using var connection = new SqliteConnection(connectionString);
-            return connection.Query<Currency>("SELECT * FROM tab_currency");
+            return connection.Query<Currancy>("SELECT * FROM tab_currency");
         }
         public IEnumerable<CategoryExpense> GetCategoryExpenses()
         {
@@ -32,13 +36,6 @@ namespace PersonalFinanceAccounting.Library.Db
         {
             using var connection = new SqliteConnection(connectionString);
             return connection.Query<CategoryIncoming>("SELECT * FROM tab_category_income");
-        }
-        public Wallet GetWallet(int id)
-        {
-            //using var connection = new SqliteConnection(connectionString);
-            //return connection.Query<Wallet>("SELECT * FROM tab_wallets WHERE wallet_id=@Id", new { Id=id }).FirstOrDefault() ;
-
-            var query = "SELECT * FROM tab_wallets WHERE wallet_id=" + $"{id}";
         }
 
 
@@ -144,5 +141,6 @@ namespace PersonalFinanceAccounting.Library.Db
                 "VALUES (date('now'),@WalletId,@category_expense_id,@Summa)";
             _ = connection.Execute(queryInsert, new { WalletId = walletId, category_expense_id = categoryExpensesId, Summa = summa });
         }
+       
     }
 }
