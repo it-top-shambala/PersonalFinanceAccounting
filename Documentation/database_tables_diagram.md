@@ -43,3 +43,35 @@ tab_incoming  -->  tab_category_income : category_income_id
 tab_incoming  -->  tab_wallets : wallet_id
 tab_wallets  -->  tab_currency : currency_id
 ```
+
+```mermaid
+classDiagram
+direction BT
+class tab_category {
+   text name
+   bool type
+   integer category_id
+}
+class tab_currency {
+   text name
+   text code
+   integer currency_id
+}
+class tab_operations {
+   text date_time
+   integer wallet_id
+   integer category_id
+   real summa
+   integer operation_id
+}
+class tab_wallets {
+   text name
+   real balance
+   integer currency_id
+   integer wallet_id
+}
+
+tab_operations  -->  tab_category : category_id
+tab_operations  -->  tab_wallets : wallet_id
+tab_wallets  -->  tab_currency : currency_id
+```
