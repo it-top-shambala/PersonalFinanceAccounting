@@ -47,12 +47,12 @@ tab_wallets  -->  tab_currency : currency_id
 ```mermaid
 classDiagram
 direction BT
-class tab_category {
+class tab_categories {
    text name
    bool type
    integer category_id
 }
-class tab_currency {
+class tab_currencies {
    text name
    text code
    integer currency_id
@@ -71,7 +71,7 @@ class tab_wallets {
    integer wallet_id
 }
 
-tab_operations  -->  tab_category : category_id
+tab_operations  -->  tab_categories : category_id
 tab_operations  -->  tab_wallets : wallet_id
-tab_wallets  -->  tab_currency : currency_id
+tab_wallets  -->  tab_currencies : currency_id
 ```
